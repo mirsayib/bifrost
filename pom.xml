@@ -50,9 +50,9 @@
 
         <!-- JWT Authentication -->
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.12.6</version>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>4.5.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -128,12 +128,6 @@
             <artifactId>gson</artifactId>
             <version>2.12.1</version>
         </dependency>
-
-
-
-
-
-
 
 
     </dependencies>
