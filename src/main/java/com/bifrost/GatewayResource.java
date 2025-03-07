@@ -1,19 +1,13 @@
 package com.bifrost;
 
-import com.bifrost.config.RouteConfig;
 import com.bifrost.forwarding.RouteForwarder;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.net.URI;
-import java.util.Objects;
 
 @Path("/gateway")
 public class GatewayResource {
-	private static final Logger logger = LoggerFactory.getLogger(GatewayResource.class);
 	@GET
 	@Path("/{service}/{remaining: .*}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -53,21 +47,10 @@ public class GatewayResource {
 
 
 	private Response forwardRequest(String service, String remainingPath, String method, String requestBody) {
-		String backendUrl = RouteConfig.getBackendUrl(service);
-
-		if (Objects.isNull(backendUrl)) {
-			return Response.status(404).entity("❌ Service not found: " + service).build();
-		}
-		URI finalUrl = buildFinalUrl(backendUrl, remainingPath);
-
-		logger.info("Forwarding request to {}", finalUrl);
-		return RouteForwarder.forwardRequest(finalUrl.toString(), method, requestBody);
+		return RouteForwarder.forwardRequest(service, remainingPath, method, requestBody);
 	}
 
-	private URI buildFinalUrl(String backendUrl, String remainingPath) {
-		URI baseUri = URI.create(backendUrl);
-		return (Objects.isNull(remainingPath) || remainingPath.isEmpty()) ? baseUri : baseUri.resolve(remainingPath);
-	}
+
 
 }
 

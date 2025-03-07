@@ -26,6 +26,7 @@ public class JwtUtil {
 		}
 		return Algorithm.HMAC256(SECRET_KEY);
 	}
+
 	public static boolean validateJwt(String token) {
 		try{
 			Algorithm algorithm = getAlgorithm();
@@ -33,6 +34,7 @@ public class JwtUtil {
 			if(Objects.isNull(algorithm)) {
 				return false;
 			}
+
 			JWTVerifier verifier = JWT.require(algorithm)
 					.build();
 			verifier.verify(token);

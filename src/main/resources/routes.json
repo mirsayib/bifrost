@@ -1,6 +1,0 @@
-{
-  "orders": "http://localhost:8081",
-  "payments": "http://localhost:8081",
-  "products": "http://localhost:8081",
-  "user-service": "http://localhost:8081"
-}

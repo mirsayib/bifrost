@@ -16,7 +16,8 @@ public class Main {
 		ResourceConfig config = new ResourceConfig()
 				.packages("com.bifrost")
 				.register(com.bifrost.security.JwtFilter.class)
-				.register(com.bifrost.ratelimiter.RateLimitFilter.class);
+				.register(com.bifrost.ratelimiter.RateLimitFilter.class)
+				.register(com.bifrost.utils.ExceptionMapperUtil.class);
 
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), config);
 

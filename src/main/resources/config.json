@@ -1,0 +1,35 @@
+{
+  "routes": {
+    "orders": "http://localhost:8081",
+    "payments": "http://localhost:8082",
+    "products": "http://localhost:8083",
+    "users": "http://localhost:8084"
+  },
+  "circuitBreakers": {
+    "orders": {
+      "failureRateThreshold": 50,
+      "waitDurationInOpenState": 10,
+      "slidingWindowSize": 10,
+      "minimumNumberOfCalls": 5
+    },
+    "users": {
+      "failureRateThreshold": 40,
+      "waitDurationInOpenState": 15,
+      "slidingWindowSize": 15,
+      "minimumNumberOfCalls": 7
+    },
+    "payments": {
+      "failureRateThreshold": 30,
+      "waitDurationInOpenState": 5,
+      "slidingWindowSize": 20,
+      "minimumNumberOfCalls": 10
+    },
+    "products": {
+      "failureRateThreshold": 50,
+      "waitDurationInOpenState": 10,
+      "slidingWindowSize": 10,
+      "minimumNumberOfCalls": 5
+    }
+  }
+
+}

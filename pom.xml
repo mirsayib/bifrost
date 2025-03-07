@@ -39,14 +39,13 @@
             <version>5.2.0</version>
         </dependency>
 
-
-
-        <!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-ratelimiter -->
+        <!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-circuitbreaker -->
         <dependency>
             <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-ratelimiter</artifactId>
+            <artifactId>resilience4j-circuitbreaker</artifactId>
             <version>2.3.0</version>
         </dependency>
+
 
         <!-- JWT Authentication -->
         <dependency>
